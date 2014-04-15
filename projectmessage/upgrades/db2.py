@@ -40,7 +40,8 @@ def do_upgrade(env, i, cursor):
                   SELECT name, message, button, mode, NULL, NULL, NULL, author, 'date' FROM termsofservice_old""")
     cursor.execute("""INSERT into project_message_record (message_name, agreed_by, agreed_at)
                     SELECT name, user, time FROM termsofservice_record_old""")
-    cursor.execute('DROP TABLE termsofservice_old, termsofservice_record_old')
+    cursor.execute('DROP TABLE termsofservice_old')
+    cursor.execute('DROP TABLE termsofservice_record_old')
 
     cursor.execute("""UPDATE system
                       SET name='projectmessage_schema'
