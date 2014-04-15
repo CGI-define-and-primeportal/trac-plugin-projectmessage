@@ -12,6 +12,7 @@ from trac.perm import IPermissionRequestor
 from trac.resource import ResourceNotFound
 from tracrpc.api import IXMLRPCHandler
 from trac.util.datefmt import to_utimestamp
+from trac.util.translation import _
 
 from projectmessage.models import ProjectMessage
 
@@ -73,8 +74,7 @@ class ProjectMessageSystem(Component):
                           FROM system 
                           WHERE name = 'projectmessage_schema'""")
         row = cursor.fetchone()
-        if row:
-            return int(row[0])
+        return int(row[0]) if row else 0
 
     def environment_needs_upgrade(self, db):
         found_version = self._check_schema_version(db)
