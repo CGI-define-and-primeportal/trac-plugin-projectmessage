@@ -26,6 +26,8 @@ def do_upgrade(env, i, cursor):
     db = env.get_db_cnx()
     cursor = db.cursor()
     db_connector, _ = DatabaseManager(env).get_connector()
+
+    @env.with_transaction()
     def do_create(db):
       for table in schema:
           for statement in db_connector.to_sql(table):
