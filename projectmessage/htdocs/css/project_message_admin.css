@@ -1,0 +1,20 @@
+.form-box fieldset div label {
+    display: block;
+    margin: 5px 0 5px;
+}
+
+.form-box fieldset div input {
+    width: 100%;
+}
+
+.full-width input {
+    width: 100%;
+}
+
+.full-width select {
+    width: 100%;
+}
+
+button {
+    margin-top: 10px !important;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/"
+      py:strip="">
+  <xi:include href="layout.html" />
+  <head>
+    <title>Preferences: Project Messages</title>
+  </head>
+  <body>
+    <h1>
+      Project Messages Preferences
+    </h1>
+    <div class="table-responsive">
+      <h3>Acknowleged Messages</h3>
+      <table class="rounded border-header full-width striped tablesorter">
+        <thead>
+          <tr>
+            <th>Message Name</th>
+            <th>Acknowledgment Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr py:for="idx, tos in enumerate(agreed)" 
+              class="${idx % 2 and 'odd' or 'even'}">
+            <td>${tos['message_name']} </td>
+            <td>${tos['agreed_at']} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-responsive">
+      <h3>Ignored Messages</h3>
+      <table class="rounded border-header full-width striped tablesorter">
+        <thead>
+          <tr>
+            <th>Message Name</th>
+            <th>Message Text</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr py:for="idx, tos in enumerate(unagreed)" 
+              class="${idx % 2 and 'odd' or 'even'}">
+            <td>${tos['name']} </td>
+            <td>${tos['message']} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

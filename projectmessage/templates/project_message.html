@@ -1,0 +1,31 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/"
+      py:strip="">
+  <xi:include href="layout.html" />
+  <head>
+    <title>New Project Message</title>
+  </head>
+  <body>
+    <h1>
+      ${name}
+    </h1>
+    <div class="box-primary color-none">
+      ${wiki_to_html(context, message)}
+    </div>
+    <a id="project-message-agreement-btn" class="btn btn-success">
+      <i class="icon-check icon-white"></i>
+      ${button}
+    </a>
+    <form method="post" action="" id="project-message-form" class="hidden">
+      <fieldset>
+        <input name="name" value="${name}" type="text"/>
+        <input id="notification-agree" name="agree" value="agree" type="text"/>
+        <input name="terms" value="${message}" type="text" />
+      </fieldset>
+    </form>
+  </body>
+</html>

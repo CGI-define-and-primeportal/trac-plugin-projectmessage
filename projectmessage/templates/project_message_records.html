@@ -1,0 +1,38 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/"
+      py:strip="">
+  <xi:include href="layout.html" />
+  <head>
+    <title>Administration: Project Message Records</title>
+  </head>
+  <body>
+    <h1>
+      Project Message Records
+    </h1>
+    <div class="table-responsive">
+      <table class="rounded border-header full-width striped tablesorter">
+        <thead>
+          <tr>
+            <th>Record ID</th>
+            <th>Message Name</th>
+            <th>Agreed By</th>
+            <th>Agreed At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr py:for="idx, record in enumerate(records)" 
+              class="${idx % 2 and 'odd' or 'even'}">
+            <td>${record['record_id']} </td>
+            <td>${record['message_name']} </td>
+            <td>${record['agreed_by']} </td>
+            <td>${record['agreed_at']} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
