@@ -3,24 +3,24 @@
 
 from trac.db import Table, Column, DatabaseManager
 
-schema = 
-        Table('termsofservice')[
-            Column('name'),
-            Column('message'),
-            Column('button'),
-            Column('mode'),
-            Column('scope'),
-            Column('perms'),
-            Column('author'),
-            Column('date', type='int64'),
-            ],
-        Table('termsofservice_record')[
-            Column('name'),
-            Column('user'),
-            Column('time', type='int64'),
-            Column('terms'),
-            ]
+schema = [
+    Table('termsofservice')[
+        Column('name'),
+        Column('message'),
+        Column('button'),
+        Column('mode'),
+        Column('scope'),
+        Column('perms'),
+        Column('author'),
+        Column('date', type='int64'),
+        ],
+    Table('termsofservice_record')[
+        Column('name'),
+        Column('user'),
+        Column('time', type='int64'),
+        Column('terms'),
         ]
+    ]
 
 def do_upgrade(env, i, cursor):
     db = env.get_dbconnection()
