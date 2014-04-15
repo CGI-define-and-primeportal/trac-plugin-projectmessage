@@ -23,14 +23,14 @@ schema = [
     ]
 
 def do_upgrade(env, i, cursor):
-    db = env.get_db_cnx()
-    cursor = db.cursor()
+
     db_connector, _ = DatabaseManager(env).get_connector()
 
     @env.with_transaction()
     def do_create(db):
-      for table in schema:
+        cursor = db.cursor()
+        for table in schema:
           for statement in db_connector.to_sql(table):
               cursor.execute(statement) 
-      cursor.execute("INSERT INTO system (name, value) VALUES ('termsofservice_schema', %s)",
+        cursor.execute("INSERT INTO system (name, value) VALUES ('termsofservice_schema', %s)",
                      (str(1),))
