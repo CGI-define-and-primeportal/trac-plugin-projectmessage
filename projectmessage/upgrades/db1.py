@@ -23,7 +23,7 @@ schema = [
     ]
 
 def do_upgrade(env, i, cursor):
-    db = env.get_dbconnection()
+    db = env.get_db_cnx()
     cursor = db.cursor()
     db_connector, _ = DatabaseManager(env).get_connector()
     def do_create(db):
