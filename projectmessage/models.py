@@ -39,7 +39,7 @@ class ProjectMessage(object):
         db = self.env.get_read_db()
         cursor = db.cursor()
         cursor.execute("""SELECT name, message, button, mode, groups,
-                                 start, end, author, created_at
+                                 start, "end", author, created_at
                           FROM project_message
                           WHERE name=%s""", (name,))
         row = cursor.fetchone()
@@ -206,7 +206,7 @@ class ProjectMessage(object):
                 self.env.log.debug("Creating new projet message - %s", self['name'])
                 cursor.execute("""INSERT INTO project_message (name, message, 
                                     button, mode, groups, 
-                                    start, end, author, created_at)
+                                    start, "end", author, created_at)
                                   VALUES (%s, %s, %s, %s, %s, 
                                     %s, %s, %s, %s)
                                 """, args)
@@ -253,7 +253,7 @@ class ProjectMessage(object):
         Cache is invalidated after an insert into the project_message table."""
         cursor = db.cursor()
         cursor.execute("""SELECT name, message, button, mode, groups, 
-                                 start, end, author, created_at
+                                 start, "end", author, created_at
                           FROM project_message
                           ORDER BY created_at""")
         return cursor.fetchall()
@@ -295,7 +295,7 @@ class ProjectMessage(object):
         db = env.get_read_db()
         cursor = db.cursor()
         cursor.execute("""SELECT m.name, m.message, m.button, m.mode,
-                                 m.groups, m.start, m.end,
+                                 m.groups, m.start, "m.end",
                                  m.author, m.created_at
                           FROM project_message as m
                           JOIN project_message_record as r

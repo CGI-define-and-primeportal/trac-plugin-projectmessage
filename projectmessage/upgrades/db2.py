@@ -36,7 +36,7 @@ def do_upgrade(env, i, cursor):
         for statement in db_connector.to_sql(table):
             cursor.execute(statement)
 
-    cursor.execute("""INSERT into project_message (name, message, button, mode, groups, start, end, author, created_at)
+    cursor.execute("""INSERT into project_message (name, message, button, mode, groups, start, "end", author, created_at)
                   SELECT name, message, button, mode, NULL, NULL, NULL, author, "date" FROM termsofservice_old""")
     cursor.execute("""INSERT into project_message_record (message_name, agreed_by, agreed_at)
                     SELECT name, user, time FROM termsofservice_record_old""")
