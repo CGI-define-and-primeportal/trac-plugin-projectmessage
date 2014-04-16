@@ -295,7 +295,7 @@ class ProjectMessage(object):
         db = env.get_read_db()
         cursor = db.cursor()
         cursor.execute("""SELECT m.name, m.message, m.button, m.mode,
-                                 m.groups, m.start, "m.end",
+                                 m.groups, m.start, m."end",
                                  m.author, m.created_at
                           FROM project_message as m
                           JOIN project_message_record as r
