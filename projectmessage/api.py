@@ -43,7 +43,7 @@ class ProjectMessageSystem(Component):
             Column('mode'),
             Column('groups'),
             Column('start', type='int64'),
-            Column('end', type='in64'),
+            Column('end', type='int64'),
             Column('author'),
             Column('created_at', type='int64'),
             ],
