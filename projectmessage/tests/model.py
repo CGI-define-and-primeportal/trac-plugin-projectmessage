@@ -85,7 +85,7 @@ class ProjectMessageTestCase(unittest.TestCase):
         msg.insert()
         term2 = ProjectMessage(self.env)
         term2['name'] = msg['name']
-        self.assertEqual(False, term2.validate())
+        self.assertEqual(False, term2.unique_name)
 
     def test_dates_are_valid(self):
         msg = self._create_new_message()
