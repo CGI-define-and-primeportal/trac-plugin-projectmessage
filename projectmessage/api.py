@@ -159,9 +159,9 @@ class ProjectMessageRPC(Component):
 
         try:
             msg.insert()
-        except:
-            self.log.info("Unable to create new project message via XMLRPC.")
-            return "Unable to create a new project message." 
+        except DatabaseError:
+            self.log.info("Database error when creating a new project message via XMLRPC.")
+            return "Unable to create a new project message."
         else:
             self.log.info("Successfully created new project message via XMLRPC.")
             return "Successfully created new project message."
