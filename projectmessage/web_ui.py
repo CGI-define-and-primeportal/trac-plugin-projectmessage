@@ -24,6 +24,7 @@ from trac.web.chrome import (ITemplateProvider, add_stylesheet,
 from trac.web.main import IRequestFilter
 from trac.wiki.formatter import format_to_html
 
+from projectmessage.api import ProjectMessageSystem
 from projectmessage.models import ProjectMessage, ProjectMessageRecord
 from simplifiedpermissionsadminplugin.model import Group
 
@@ -43,9 +44,6 @@ class ProjectMessageUI(Component):
 
     timeout_period = Option('projectmessage', 'timeout_period', 
                     timedelta(minutes=10))
-
-    mode_options = ListOption('projectmessage', 'modes', 
-                    ['Alert', 'Full Screen'])
 
     url_requests = ListOption('projectmessage', 'url_requests', 
                     ['/projectmessage', '/ajax/projectmessage'])
@@ -73,7 +71,7 @@ class ProjectMessageUI(Component):
                         m[k] = m[k].strftime('%Y-%m-%d')
 
                 data = {
-                        'mode_options': self.mode_options,
+                        'mode_options': ProjectMessageSystem(self.env).mode_options,
                         'group_options': itertools.chain(groups, ['*']),
                         'msgs': previous_msgs,
                         'start_date': datetime.now().strftime("%Y-%m-%d"),

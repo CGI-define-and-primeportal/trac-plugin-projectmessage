@@ -56,6 +56,7 @@ setup(
             'projectmessage.admin = projectmessage.admin',
             'projectmessage.api = projectmessage.api',
             'projectmessage.models = projectmessage.models',
+            'projectmessage.rpc = projectmessage.rpc',
             'projectmessage.web_ui = projectmessage.web_ui',
         ]
     }

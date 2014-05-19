@@ -11,9 +11,9 @@ from trac.core import TracError
 from trac.resource import ResourceNotFound
 from trac.util.datefmt import from_utimestamp, to_utimestamp, parse_date
 
+from projectmessage.api import ProjectMessageSystem
 from simplifiedpermissionsadminplugin import SimplifiedPermissions
 from simplifiedpermissionsadminplugin.model import Group
-
 
 class ProjectMessage(object):
     """Class to represent project wide messages."""
@@ -52,8 +52,7 @@ class ProjectMessage(object):
                 else:
                     self.values[field] = value
         else:
-            raise ResourceNotFound("Project message '%s' does "
-                                   "not exist.", (name))
+            raise ResourceNotFound("Project message '%s' does not exist.", (name))
 
     def _populate_from_database(self, row):
         """
@@ -127,7 +126,7 @@ class ProjectMessage(object):
         projectmessage modes ListOption from the trac-ini.
         """
 
-        if self['mode'] in self.env.config.getlist('projectmessage', 'modes'):
+        if self['mode'] in ProjectMessageSystem(self.env).mode_options:
             return True
         else:
             return False
