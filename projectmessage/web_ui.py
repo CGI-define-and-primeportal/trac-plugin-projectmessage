@@ -183,7 +183,12 @@ class ProjectMessageUI(Component):
             if timeout_exceeded or timeout_exceeded is None:
 
                 if (not req.path_info.startswith('/projectmessage') and not
-                        req.path_info.startswith('/chrome') and
+                        req.path_info.startswith('/chrome') and not
+                        req.path_info.startswith('/login') and not
+                        req.path_info.startswith('/rpc') and not
+                        req.path_info.startswith('/xmlrpc') and not
+                        req.path_info.startswith('/shib-session-initiator') and not
+                        req.path_info.startswith('/adfs') and
                         handler != self):
                     pm = ProjectMessage
                     unagreed_full_screen = pm.get_unagreed_messages(self.env, 
