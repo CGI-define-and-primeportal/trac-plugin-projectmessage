@@ -116,7 +116,16 @@ class ProjectMessage(object):
             except TracError:
                 return False
 
+        return True
+
+    @property
+    def valid_daterange(self):
+        """
+        Returns a boolean to indicate if the date difference between start and end dates are acceptable.
+
+        """
         return self['start'] < self['end']
+        
 
     @property
     def valid_mode(self):

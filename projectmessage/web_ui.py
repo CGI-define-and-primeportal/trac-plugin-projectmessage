@@ -114,9 +114,14 @@ class ProjectMessageUI(Component):
                                         "a different name." % name)
                         error = True
                     elif not new_msg.valid_dates:
-                        add_notice(req, "Incorrect format for %s date. "
-                                        "Should be YYYY-MM-DD" % (new_msg.end))
+                        add_notice(req, "Incorrect format for date. "
+                                        "Should be YYYY-MM-DD" )
                         error = True
+                    elif not new_msg.valid_daterange:
+                        add_notice(req, "The date difference between start date and "
+                                        "end date should be of atleast 1 day.")
+                        error = True
+
                     if error:
                         data.update(req.args)
                         return 'project_message_admin.html', data
