@@ -99,15 +99,12 @@ class ProjectMessage(object):
         return False if cursor.fetchone() else True
 
     @property
-    def valid_dates(self):
+    def valid_date_format(self):
         """
-        Returns a boolean to indicate if the start and end dates are valid.
-
-        We pass these respective values to the trac utils parse_date function, 
-        which will raise a ValueError exception if the date format of the 
+        Returns a boolean to indicate if the start and end dates are ISO-8601 format.
+        We pass these respective values to the trac utils parse_date function,
+        which will raise a ValueError exception if the date format of the
         string is not ISO-8601 compliant.
-
-        We also check that the end date is greater than the start date.
         """
 
         for date in (self['start'], self['end']):
@@ -119,7 +116,7 @@ class ProjectMessage(object):
         return True
 
     @property
-    def valid_daterange(self):
+    def valid_date_range(self):
         """
         Returns a boolean to indicate if the date difference between start and end dates are acceptable.
 
@@ -184,7 +181,7 @@ class ProjectMessage(object):
         the insert() method, but can also be used as part of the API.
         """
 
-        if all([self.unique_name, self.valid_dates, self.valid_groups, self.valid_mode]):
+        if all([self.unique_name, self.valid_date_format, self.valid_date_range, self.valid_groups, self.valid_mode]):
             return all([self['message'], self['button'], self['author']])
         else:
             return False

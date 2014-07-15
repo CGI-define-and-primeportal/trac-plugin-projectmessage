@@ -89,13 +89,13 @@ class ProjectMessageTestCase(unittest.TestCase):
 
     def test_dates_are_valid(self):
         msg = self._create_new_message()
-        self.assertEqual(True, msg.valid_dates)
+        self.assertEqual(True, msg.valid_date_format)
 
     def test_dates_are_invalid(self):
         msg = ProjectMessage(self.env)
         msg['start'] = "2014-20-04" # not ISO-8601
         msg['end'] = "2014-30-04" # not ISO-8601
-        self.assertEqual(False, msg.valid_dates)
+        self.assertEqual(False, msg.valid_date_format)
 
     def test_populate(self):
         msg = ProjectMessage(self.env)

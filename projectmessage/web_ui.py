@@ -109,16 +109,16 @@ class ProjectMessageUI(Component):
 
                     error = None
                     if not new_msg.unique_name:
-                        add_notice(req, "There is already a project message "
+                        add_warning(req, "There is already a project message "
                                         "with the name %s. Please choose "
                                         "a different name." % name)
                         error = True
-                    elif not new_msg.valid_dates:
-                        add_notice(req, "Incorrect format for date. "
+                    elif not new_msg.valid_date_format:
+                        add_warning(req, "Incorrect format for date. "
                                         "Should be YYYY-MM-DD" )
                         error = True
-                    elif not new_msg.valid_daterange:
-                        add_notice(req, "The date difference between start date and "
+                    elif not new_msg.valid_date_range:
+                        add_warning(req, "The date difference between start date and "
                                         "end date should be of atleast 1 day.")
                         error = True
 
