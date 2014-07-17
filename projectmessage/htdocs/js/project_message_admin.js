@@ -1,5 +1,12 @@
 $( document ).ready(function() {
-  $("#project-message-form").validate({errorClass: "ui-state-error"});
+  $("#project-message-form").validate({
+    errorClass: "ui-state-error",
+    errorPlacement: function(error, element) {
+      var trigger = element.next('.ui-datepicker-trigger');
+      error.insertAfter(trigger.length > 0 ? trigger : element);
+    }
+  });
+
   $("#mode-select, #scope-select, #group-select").select2();
 
  $('#start_date,#end_date').datepicker({
