@@ -23,3 +23,8 @@ button {
     width: 200px!important;
     margin-top: 10px;
 }
+
+.icon-question-sign {
+    color: #888;
+    cursor: pointer;
+}
