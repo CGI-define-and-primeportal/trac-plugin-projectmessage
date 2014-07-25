@@ -47,6 +47,7 @@ setup(
     package_data={
         'projectmessage': [
             'htdocs/js/*.js',
+            'htdocs/css/*.css',
             'templates/*',
         ]
     },
