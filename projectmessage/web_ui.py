@@ -15,7 +15,7 @@ from trac.core import Component, implements
 from trac.mimeview import Context
 from trac.prefs import IPreferencePanelProvider
 from trac.resource import ResourceNotFound
-from trac.util.datefmt import to_utimestamp
+from trac.util.datefmt import to_utimestamp, from_utimestamp
 from trac.util.presentation import to_json
 from trac.web import ITemplateStreamFilter
 from trac.web.api import IRequestHandler
@@ -136,6 +136,8 @@ class ProjectMessageUI(Component):
                     else:
                         add_notice(req, "New project message created.")
                         self.log.info("New project message '%s' created", name)
+                        # don't show a timestamp to the user - bad UI
+                        new_msg['created_at'] = from_utimestamp(new_msg['created_at']).strftime('%Y-%m-%d')
                         data['msgs'].append(new_msg)
 
                 return 'project_message_admin.html', data
