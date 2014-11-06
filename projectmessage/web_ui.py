@@ -310,7 +310,6 @@ class ProjectMessageUI(Component):
                                             type="button",
                                             data_dismiss="alert"
                                         ),
-                                        id_=msg['name'],
                                         class_="project-message cf alert alert-info alert-dismissable individual"
                                     ),
                                     tag.form(
