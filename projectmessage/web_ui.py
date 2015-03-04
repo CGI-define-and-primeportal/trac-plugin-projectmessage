@@ -298,7 +298,7 @@ class ProjectMessageUI(Component):
                     alert_markup = tag(
                                     tag.div(
                                         tag.i(
-                                            class_="alert-icon icon-info-sign"
+                                            class_="alert-icon fa fa-info-circle"
                                         ),
                                         tag.ul(
                                             tag.li(msg['message'],
