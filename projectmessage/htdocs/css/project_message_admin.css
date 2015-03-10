@@ -5,7 +5,7 @@
 
 button[type='submit'] { margin-top: 10px; }
 
-.icon-question-sign {
+.fa-question-circle {
   color: #888;
   cursor: pointer;
 }
