@@ -27,7 +27,7 @@ $( document ).ready(function() {
     },
   });
 
-  $('.icon-question-sign').on('click', function() {
+  $('.fa fa-question-circle').on('click', function() {
     $("#" + this.id.replace('help', 'dialog')).dialog({
       title: 'Project Message Help',
       width: 400,
