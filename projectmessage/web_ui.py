@@ -52,7 +52,7 @@ class ProjectMessageUI(Component):
 
     def get_admin_panels(self, req):
         if 'LOGIN_ADMIN' in req.perm:
-            yield ('general', 'General', 'project-message', 
+            yield ('project-message', 'Project Message', 'project-message', 
                         'Project Message')
             yield ('auditing', 'Auditing', 'project-message-records', 
                         'Project Message Records')
