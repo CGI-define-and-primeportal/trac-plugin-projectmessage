@@ -8,7 +8,6 @@ from trac.env import IEnvironmentSetupParticipant
 from trac.perm import IPermissionRequestor
 from trac.util.translation import _
 
-
 class ProjectMessageSystem(Component):
     """
     Creates the project_message and project_message_report tables, and defines 

@@ -6,13 +6,11 @@ import json
 import unittest
 
 from trac.core import *
-from trac.resource import ResourceNotFound
 from trac.test import EnvironmentStub
-from trac.util.datefmt import from_utimestamp, to_utimestamp
+from trac.util.datefmt import from_utimestamp
 
 from projectmessage.models import ProjectMessage, ProjectMessageRecord
 from projectmessage.api import ProjectMessageSystem
-from simplifiedpermissionsadminplugin.simplifiedpermissions import SimplifiedPermissions
 
 class ProjectMessageTestCase(unittest.TestCase):
 
