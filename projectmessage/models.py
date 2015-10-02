@@ -13,6 +13,7 @@ from trac.util.datefmt import from_utimestamp, to_utimestamp, parse_date
 
 from projectmessage.api import ProjectMessageSystem
 from simplifiedpermissionsadminplugin import SimplifiedPermissions
+from simplifiedpermissionsadminplugin.model import Group
 
 class ProjectMessage(object):
     """Class to represent project wide messages."""
